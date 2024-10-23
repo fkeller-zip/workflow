@@ -1,0 +1,9 @@
+POST localhost:8080/v1/result
+{
+  "result": [
+    {
+      "customerId": "5bd2d637-c946-45bf-b194-d197da7da5cb",
+      "consumption": 529101000
+    }
+  ]
+}
