@@ -1,0 +1,1 @@
+Infos siehe [HIER](https://github.com/MPL-WidgetsPushNotifications/WidgetsPushNotificationExercise/blob/ece72304c2852bff638a9bcbc69bde5a07dc7472/Abgabe%20Homescreen%20Widgets%20und%20Push%20Notifications.pdf) 
