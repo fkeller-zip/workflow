@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Internet-Berechtigung für Firebase Messaging und Netzwerkzugriff -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Optional: Berechtigung für Netzwerkstatus -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +18,8 @@
         android:theme="@style/Theme.WidgetsPushNotificationsExercise"
         tools:targetApi="31"
         android:usesCleartextTraffic="true">
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -20,10 +27,31 @@
             android:theme="@style/Theme.WidgetsPushNotificationsExercise">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Firebase Messaging Service -->
+        <service
+            android:name=".FCMService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Broadcast Receiver for Widgets -->
+        <receiver
+            android:name=".receiver.BroadcastWidgetReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/broadcast_widget_info" />
+        </receiver>
+
     </application>
 
 </manifest>

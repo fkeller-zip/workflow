@@ -11,6 +11,7 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -20,5 +21,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "WidgetsPushNotificationsExercise"
-include(":app")
-include(":FirebaseConnector")
+include(":app", ":FirebaseConnector")  // Included both modules
